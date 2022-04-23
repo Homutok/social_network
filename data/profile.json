@@ -1,0 +1,26 @@
+{
+  "ProfileList": [
+    {
+      "id": 1,
+      "role": "admin",
+      "name": "Kuzmin Alexander",
+      "group": "IVT-13-18",
+      "university": "Chuvash State University",
+      "private": {
+        "login": "admin",
+        "password": "1234"
+      }
+    },
+    {
+      "id": 2,
+      "role": "guest",
+      "name": "Test User",
+      "group": "test group",
+      "university": "test",
+      "private": {
+        "login": "admin",
+        "password": "1234"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+export const EDIT_POST = "EDIT_POST"
+export const CREATE_POST = "CREATE_POST"
+export const UPDATE_POST = "UPDATE_POST"
+export const DELETE_POST = "DELETE_POST"
+export const COMPLETE_POST = "COMPLETE_POST"
+export const LIKE_POST = "LIKE_POST"
+export const UNLIKE_POST = "UNLIKE_POST"
+
+
+export const UPDATE_COMMENT = "UPDATE_COMMENT"
+export const CONFIRM_COMMENT = "CONFIRM_COMMENT"
+export const DELETE_COMMENT = "DELETE_COMMENT"

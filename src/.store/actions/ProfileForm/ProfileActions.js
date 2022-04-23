@@ -1,0 +1,5 @@
+export const UPDATE_PROFILE_INFO= "UPDATE_PROFILE_INFO"
+export const COMPLETE_POST = "COMPLETE_POST"
+export const TOGGLE_LIKE_POST = "TOGGLE_LIKE_POST"
+
+export const LOGIN = "LOGIN"

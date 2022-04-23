@@ -1,0 +1,60 @@
+{
+    "PostList": [
+        {
+            "id": 1,
+            "label": "How to create react project",
+            "text": "  Create React App is a comfortable environment for learning React, and is the best way to start building a new single-page application in React. It sets up your development environment so that you can use the latest JavaScript features, provides a nice developer experience, and optimizes your app for production. You’ll need to have Node >= 14.0.0 and npm >= 5.6 on your machine. ",
+            "author": "Alex",
+            "comment": [
+                {
+                    "id": 1,
+                    "comment_author": "guest1",
+                    "comment_text": "Thx"
+                },
+                {
+                    "id": 2,
+                    "comment_author": "guest2",
+                    "comment_text": "Wow"
+                },
+                {
+                    "id": 3,
+                    "comment_author": "guest3",
+                    "comment_text": "Cool"
+                },
+                {
+                    "id": 4,
+                    "comment_author": "guest4",
+                    "comment_text": "Hello its my first comment"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "label": "Vue vs React ? ",
+            "text": "Front-end development can be confusing with new JavaScript libraries sprouting like mushrooms after a summer rain. Each time you start a new project, you face a tough choice: stick with your battle-tested stack, or experiment with cutting-edge tech? So let’s compare the two most popular options, Vue vs React.",
+            "author": "Alex",
+            "comment": [
+                {
+                    "id": 1,
+                    "comment_author": "guest1",
+                    "comment_text": "Thx"
+                },
+                {
+                    "id": 2,
+                    "comment_author": "guest2",
+                    "comment_text": "Wow"
+                },
+                {
+                    "id": 3,
+                    "comment_author": "guest3",
+                    "comment_text": "Cool"
+                },
+                {
+                    "id": 4,
+                    "comment_author": "guest4",
+                    "comment_text": "Hello its my first comment"
+                }
+            ]
+        }
+    ]
+}
