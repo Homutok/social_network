@@ -218,7 +218,7 @@ let initalState = {
             ]
         }
     ],
-    bufferNewPostData:{
+    bufferNewPostData: {
         id: 0,
         label: "",
         text: "",
@@ -266,14 +266,14 @@ const blogReducer = (state = initalState, action) => {
                 isCreatedNewPost: true
             };
         case UPDATE_POST:
-            return { ...state, bufferNewPostData: {...state.bufferNewPostData, label: action.postLabel, text: action.postText } };
+            return { ...state, bufferNewPostData: { ...state.bufferNewPostData, label: action.postLabel, text: action.postText } };
         case COMPLETE_POST:
             {
                 let newState = state.postList
-                state.isCreatedNewPost?
-                newState.push(state.bufferNewPostData ):
-                newState[action.postIndex] = state.bufferNewPostData 
-                return { ...state, postList: newState, isCreatedNewPost: false};
+                state.isCreatedNewPost ?
+                    newState.push(state.bufferNewPostData) :
+                    newState[action.postIndex] = state.bufferNewPostData
+                return { ...state, postList: newState, isCreatedNewPost: false };
             }
         case DELETE_COMMENT:
             return state;
@@ -284,7 +284,7 @@ const blogReducer = (state = initalState, action) => {
             }
         case UNLIKE_POST:
             {
-                
+
                 state.postList[index].liked -= 1
                 return { ...state };
             }

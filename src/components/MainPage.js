@@ -12,24 +12,35 @@ import PostActions from './BlogForm/BlogActionPost/ActionPostContainer';
 export default function App() {
   const { Header, Footer, Content } = Layout;
   return (
-    <div className="App">
+    <div className="App"
+
+    >
       <Layout>
-        <Header>
-          <HeaderLine/>
+        <Header className="header">
+          <HeaderLine />
         </Header>
 
         <Content>
           <Routes>
-              <Route path="blog" element={<Blog/>} />
-              <Route path="blog/:id" element={<PostDetail/>} />
-              <Route path="blog/action/:type=:id" element={<PostActions/>} />
-              <Route path="profile" element={<Profile/>} />
-              <Route path="login" element={<Login/>} />
-              <Route path="" element={<Login/>} />
+            <Route path="blog" element={<Blog />} />
+            <Route path="blog/:id" element={<PostDetail />} />
+            <Route path="blog/action/:type=:id" element={<PostActions />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="login" element={<Login />} />
+            <Route path="" element={<Login />} />
           </Routes>
         </Content>
 
-        <Footer>
+        <Footer
+          style={{
+            borderTop: '1px solid #e8e8e8',
+            left: 0,
+            bottom: 0,
+            width: '100%',
+            backgroundColor: 'white',
+            textAlign: 'center'
+          }}
+        >
           Kuzmin Alexander IVT-13-18
         </Footer>
       </Layout>

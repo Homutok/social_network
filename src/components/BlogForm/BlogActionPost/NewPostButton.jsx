@@ -13,7 +13,7 @@ const NewPostButton = (props) => {
     }, [props.stateIsCreatedPost])
 
     const createPostAndRedirect = () => {
-        props.stateIsCreatedPost ? navigate("/blog/action/new=" + props.newPostIndex):(props.createPost())
+        props.stateIsCreatedPost ? navigate("/blog/action/new=" + props.newPostIndex) : (props.createPost())
         navigate("/blog/action/new=" + props.newPostIndex)
     }
 

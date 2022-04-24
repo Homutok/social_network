@@ -53,7 +53,7 @@ let initalState = {
     },
     isAuthData: {
         currentUser: 0,
-        isAuth: false,
+        isAuth: true,
         errors: null
     },
     isLoaded: true,
@@ -98,8 +98,8 @@ const blogReducer = (state = initalState, action) => {
                 })
                 if (!newAuthData.isAuth)
                     newAuthData.errors = "Incorrect login or password !!"
-                console.log({ ...state, isAuthData: newAuthData})
-                return { ...state, isAuthData: newAuthData};
+                console.log({ ...state, isAuthData: newAuthData })
+                return { ...state, isAuthData: newAuthData };
             }
         default:
             return state;

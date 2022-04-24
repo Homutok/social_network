@@ -18,34 +18,34 @@ function mapStateToProps(state) {
         curUser: state.profile.isAuthData.currentUser,
         userdata: state.profile.profileList,
         newText: state.blog.newCommentText,
-        authData:state.profile.isAuthData.isAuth,
+        authData: state.profile.isAuthData.isAuth,
     };
 }
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
-        editPosts:(index)=>{
+        editPosts: (index) => {
             dispatch(editPost(index));
         },
-        postDelete:(index)=>{
+        postDelete: (index) => {
             dispatch(deletePost(index));
         },
-        toggleLike:(index)=>{
+        toggleLike: (index) => {
             dispatch(toggleLikePost(index));
         },
-        likePost:(index)=>{
+        likePost: (index) => {
             dispatch(likePost(index));
         },
-        unLikePost:(index) => {
+        unLikePost: (index) => {
             dispatch(unLikePost(index));
         },
-        updateComment:(newCommentElement) => {
+        updateComment: (newCommentElement) => {
             dispatch(updateComment(newCommentElement));
         },
-        completeComment:(newMsgElement, index, authorname) => {
+        completeComment: (newMsgElement, index, authorname) => {
             dispatch(updateComment(newMsgElement));
-            dispatch(completeComment(index,authorname));
+            dispatch(completeComment(index, authorname));
         },
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PostDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(PostDetail);

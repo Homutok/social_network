@@ -2,7 +2,7 @@ import { Menu } from 'antd';
 import { Link } from "react-router-dom";
 
 export default function HeaderLine(props) {
-//Можно было бы сделать чуток красивее...
+    //Можно было бы сделать чуток красивее...
     if (props.authData)
         return <div className="menu" >
             <div className="logo" />

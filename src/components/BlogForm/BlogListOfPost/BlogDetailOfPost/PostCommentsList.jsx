@@ -14,7 +14,11 @@ const CommentList = (props) => {
         itemLayout="horizontal"
         header={<div>Comments</div>}
         dataSource={commentList}
-        loading = {!isLoad}
+        loading={!isLoad}
+        type="flex"
+        justify="start"
+        style={{ margin: '1%' }}
+        align="left"
         renderItem={item => (
             <List.Item>
                 <List.Item.Meta

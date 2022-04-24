@@ -9,7 +9,7 @@ const CommentAdd = (props) => {
         let text = newCommentElement.current.input.value;
         props.complete(text, props.postId, props.userName);
     }
-    
+
     return <Input.Group compact>
         <Input
             style={{ width: 'calc(100% - 60px)' }}
@@ -24,6 +24,6 @@ const CommentAdd = (props) => {
             <PlayCircleOutlined />
         </Button>
     </Input.Group>
-    
+
 }
 export default CommentAdd

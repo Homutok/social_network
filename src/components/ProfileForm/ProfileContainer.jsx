@@ -5,14 +5,14 @@ function mapStateToProps(state) {
     return {
         profileInfo: state.profile.profileList,
         profileEdit: state.profile.newProfileData,
-        authData:state.profile.isAuthData.isAuth,
-        curUser:state.profile.isAuthData.currentUser,
-       
+        authData: state.profile.isAuthData.isAuth,
+        curUser: state.profile.isAuthData.currentUser,
+
     };
 }
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

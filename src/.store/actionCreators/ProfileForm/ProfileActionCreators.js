@@ -23,7 +23,7 @@ export const toggleLikePost = (index) => ({
 
 export const loginUsers = (login, userPassword) => ({
     type: LOGIN,
-    payload:{
+    payload: {
         username: login,
         password: userPassword
     }

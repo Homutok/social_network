@@ -15,24 +15,24 @@ function mapStateToProps(state) {
         newPost: state.blog.newPost,
         curUser: state.profile.isAuthData.currentUser,
         userdata: state.profile.profileList,
-        authData:state.profile.isAuthData.isAuth,
+        authData: state.profile.isAuthData.isAuth,
     };
 }
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
-        createEmptyPost:()=>{
+        createEmptyPost: () => {
             dispatch(createPost());
         },
-        toggleLike:(index)=>{
+        toggleLike: (index) => {
             dispatch(toggleLikePost(index));
         },
-        like:(index)=>{
+        like: (index) => {
             dispatch(likePost(index));
         },
-        unLike:(index)=>{
+        unLike: (index) => {
             dispatch(unLikePost(index));
         },
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Blog);
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);
