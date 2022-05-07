@@ -25,6 +25,7 @@ export default function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:id" element={<PostDetail />} />
             <Route path="blog/action/:type=:id" element={<PostActions />} />
+            <Route path="blog/action/:type" element={<PostActions />} />
             <Route path="profile" element={<Profile />} />
             <Route path="login" element={<Login />} />
             <Route path="" element={<Login />} />

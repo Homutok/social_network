@@ -1,11 +1,12 @@
-import { LoadingOutlined } from '@ant-design/icons';
+import { SyncOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
-
+import React from 'react';
 
 const Loading = () => {
   return <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
     <Col>
-      <LoadingOutlined
+      <SyncOutlined
+        spin
         style={{
           verticalAlign: 'middle',
           alignItems: 'center',

@@ -1,5 +1,5 @@
 import { Card, Row, Col, Space } from 'antd';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,20 +20,21 @@ const PostDetail = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let index = props.posts.findIndex(element => element.id.toString() === id);
         if (!props.authData)
             navigate("/login")
         else {
-            setPost(props.posts[index]);
-            setLoad(true)
+            props.loadProfileData(props.token)
+            props.loadData(id, props.token)
+            setPost(props.post)
+            setLoad(props.isLoadedCheck)
         }
-        debugger
-    }, [props.post])
+    }, [props.isLoadedCheck, props.newText])
 
     return isLoaded ?
         <Space direction='vertical' wrap style={{ width: '100%' }}>
             <Row type="flex" justify="end" style={{ margin: '1%' }}>
                 <DeletePostButton
+                    token={props.token}
                     delete={props.postDelete}
                     postId={post.id}
                 />
@@ -50,30 +51,29 @@ const PostDetail = (props) => {
                 >
                     <Post postData={post} fulltext={true} />
                     <Row>
-
                         <LikeButton
-                            toggleLike={props.toggleLike}
                             postLike={post.liked}
                             postId={post.id}
-                            userLikedPosts={props.userdata[props.curUser].public.likedPosts}
-                            like={props.likePost}
+                            userLikedPosts={props.userdata.likes}
+                            like={props.LikePost}
                             unlike={props.unLikePost}
+                            token={props.token}
                         />
                         <Col offset={10} >
                             <EditPostButton
                                 id={post.id}
-                                editPost={props.editPosts}
                             />
                         </Col>
                     </Row>
                     <CommentList comments={post.comment} />
                     <hr />
                     <CommentAdd
+                        token={props.token}
                         update={props.updateComment}
                         complete={props.completeComment}
                         newCommentTxt={props.newText}
                         postId={post.id}
-                        userName={props.userdata[props.curUser].name}
+                        userName={props.userdata.username}
                     />
                 </Card>
             </Row>

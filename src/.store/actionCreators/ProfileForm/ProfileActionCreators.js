@@ -1,32 +1,40 @@
 import {
-    UPDATE_PROFILE_INFO,
-    COMPLETE_POST,
-    TOGGLE_LIKE_POST,
-    LOGIN
+    GET_PROFILE_INFO,
+    GET_ERROR,
+    TOGGLE_LIKE_POST_SUCCESS,
+    LOGIN,
+    LOGIN_ERROR,
+    LOGIN_CHECK
 } from "../../actions/ProfileForm/ProfileActions"
 
-export const updateProfile = (text) => ({
-    type: UPDATE_PROFILE_INFO,
-    msgText: text
+export const getProfileDataSuccess = (profileInfo) => ({
+    type: GET_PROFILE_INFO,
+    payload: profileInfo
 })
 
-
-export const completePost = (index) => ({
-    type: COMPLETE_POST,
-    msgIndex: index
+export const getProfileDataFailure = (error) => ({
+    type: GET_ERROR,
+    payload: error
 })
 
-export const toggleLikePost = (index) => ({
-    type: TOGGLE_LIKE_POST,
-    postId: index
+export const toggleLikeProfile = () => ({
+    type: TOGGLE_LIKE_POST_SUCCESS
 })
 
-export const loginUsers = (login, userPassword) => ({
+export const loginUsersSuccess = (data) => ({
     type: LOGIN,
     payload: {
-        username: login,
-        password: userPassword
+        refresh: data.refresh,
+        access: data.access
     }
+})
 
+export const loginUsersError = (error) => ({
+    type: LOGIN_ERROR,
+    payload: { error: error }
+})
+
+export const loginUsersCheck = () => ({
+    type: LOGIN_CHECK
 })
 

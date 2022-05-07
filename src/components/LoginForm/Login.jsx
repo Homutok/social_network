@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Card, Input, Space, Button, Tooltip, notification, Row } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined, InfoCircleOutlined, WarningOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
@@ -46,7 +46,7 @@ const Login = (props) => {
                         prefix={<UserOutlined />}
                         status={errorStatus}
                         suffix={
-                            <Tooltip title="Login: admin ; Password: (его нет)">
+                            <Tooltip title="Login: admin ; Password: admin">
                                 <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
                             </Tooltip>
                         }

@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { loginUsers } from '../../.store/actionCreators/ProfileForm/ProfileActionCreators'
+import { logIn } from '../../.store/api/profile-api';
 
 function mapStateToProps(state) {
     return {
         userLoginStatus: state.profile.isAuthData
     };
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         login: (username, password) => {
-            dispatch(loginUsers(username, password));
+            dispatch(logIn({username:username, password:password}));
         },
     }
 }

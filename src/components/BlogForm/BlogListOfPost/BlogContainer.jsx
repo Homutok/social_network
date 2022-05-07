@@ -1,36 +1,40 @@
 import { connect } from 'react-redux';
 import {
-    likePost,
-    unLikePost,
-    createPost,
-} from '../../../.store/actionCreators/BlogForm/BlogActionCreators'
+    getBlogDataList
+} from '../../../.store/api/posts-api'
+
 import {
-    toggleLikePost
-} from '../../../.store/actionCreators/ProfileForm/ProfileActionCreators'
+    getProfileInfo,
+    like,
+    unlike
+} from '../../../.store/api/profile-api'
+
 import Blog from './BlogPostList';
 
 function mapStateToProps(state) {
     return {
         posts: state.blog.postList,
         newPost: state.blog.newPost,
-        curUser: state.profile.isAuthData.currentUser,
-        userdata: state.profile.profileList,
+        userdata: state.profile.profileInfo,
+        token: state.profile.isAuthData.access,
         authData: state.profile.isAuthData.isAuth,
+        isLoadedCheck: state.blog.isLoadedList,
+        isLoadedProfileCheck: state.profile.isLoaded
     };
 }
 function mapDispatchToProps(dispatch) {
     return {
-        createEmptyPost: () => {
-            dispatch(createPost());
+        getPostsData: (token) => {
+            dispatch(getBlogDataList(token));
         },
-        toggleLike: (index) => {
-            dispatch(toggleLikePost(index));
+        loadProfileData: (token) => {
+            dispatch(getProfileInfo(token))
         },
-        like: (index) => {
-            dispatch(likePost(index));
+        LikePost: (index, token) => {
+            dispatch(like(index, token));
         },
-        unLike: (index) => {
-            dispatch(unLikePost(index));
+        unLikePost: (index, token) => {
+            dispatch(unlike(index, token));
         },
     }
 }

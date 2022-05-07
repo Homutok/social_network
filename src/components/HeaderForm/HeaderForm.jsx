@@ -1,5 +1,6 @@
 import { Menu } from 'antd';
 import { Link } from "react-router-dom";
+import React from 'react';
 
 export default function HeaderLine(props) {
     //Можно было бы сделать чуток красивее...

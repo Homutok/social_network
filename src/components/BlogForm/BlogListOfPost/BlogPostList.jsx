@@ -1,20 +1,27 @@
-import { Space, Col, Row, Card } from 'antd';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Space, Row, Card } from 'antd';
 import { useNavigate, Link } from 'react-router-dom';
 import Post from './BlogPost'
 import LikeButton from './BlogButtonLike'
 import MoreButton from './BlogButtonMore'
 import NewPostButton from '../BlogActionPost/NewPostButton';
 import Loading from './BlogLoading';
+
 const Blog = (props) => {
     const [posts, setPosts] = useState([]);
     const [isLoaded, setLoad] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (!props.authData) navigate("/login")
-        else { setPosts(props.posts); setLoad(true) }
-    }, [props.posts, props.authData, navigate])
+        if (!props.authData)
+            navigate("/login")
+        else {
+            props.loadProfileData(props.token)
+            props.getPostsData(props.token)
+            setPosts(props.posts);
+            setLoad(props.isLoadedCheck === props.isLoadedProfileCheck);
+        }
+    }, [props.isLoadedCheck, props.isLoadedProfileCheck])
 
     return isLoaded ?
         <Space direction='vertical' wrap style={{ width: '100%' }}>
@@ -41,12 +48,12 @@ const Blog = (props) => {
                             </Link>
                             <Row>
                                 <LikeButton
-                                    toggleLike={props.toggleLike}
                                     postLike={post.liked}
                                     postId={post.id}
-                                    userLikedPosts={props.userdata[props.curUser].public.likedPosts}
-                                    like={props.like}
-                                    unlike={props.unLike}
+                                    userLikedPosts={props.userdata.likes}
+                                    like={props.LikePost}
+                                    unlike={props.unLikePost}
+                                    token={props.token}
                                 />
                                 <MoreButton postID={post.id} />
                             </Row>

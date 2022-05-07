@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import {
-    createPost,
-    updatePost,
-    deletePost,
-    editPost,
-    completePost,
+    changeNewPost
 } from '../../../.store/actionCreators/BlogForm/BlogActionCreators'
+import {
+    updateBlogDataDetail,
+    createBlogDataDetail
+} from '../../../.store/api/posts-api'
 import NewPost from './ActionPostForm';
 
 function mapStateToProps(state) {
@@ -13,25 +13,21 @@ function mapStateToProps(state) {
         posts: state.blog.postList,
         newPost: state.blog.bufferNewPostData,
         stateIsCreatedPost: state.blog.isCreatedNewPost,
+        token: state.profile.isAuthData.access,
     };
 }
 function mapDispatchToProps(dispatch) {
     return {
-        edit_post: (index) => {
-            dispatch(editPost(index));
+        change_post: () => {
+            dispatch(changeNewPost());
         },
-        create_post: () => {
-            dispatch(createPost());
+        create_post: (data, token) => {
+            dispatch(changeNewPost());
+            dispatch(createBlogDataDetail(data, token));
         },
-        update_post: (index) => {
-            dispatch(updatePost(index));
-        },
-        delete_post: (index) => {
-            dispatch(deletePost(index));
-        },
-        confirm_post: (index, username, label, text) => {
-            dispatch(updatePost(label, text));
-            dispatch(completePost(index, username));
+        update_post: (data, index, token) => {
+            dispatch(changeNewPost());
+            dispatch(updateBlogDataDetail(data, index, token));
         },
     }
 }

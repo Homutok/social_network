@@ -1,5 +1,5 @@
 import { List, Avatar } from 'antd';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CommentList = (props) => {
     const [commentList, setCommentList] = useState([]);

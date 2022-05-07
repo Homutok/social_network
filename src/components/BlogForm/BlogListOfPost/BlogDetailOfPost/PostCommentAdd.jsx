@@ -1,5 +1,5 @@
 import { Button, Input } from 'antd';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { PlayCircleOutlined } from '@ant-design/icons';
 
 const CommentAdd = (props) => {
@@ -7,7 +7,8 @@ const CommentAdd = (props) => {
     let newCommentElement = useRef(null);
     const competeComment = () => {
         let text = newCommentElement.current.input.value;
-        props.complete(text, props.postId, props.userName);
+        props.complete(text, props.postId, props.token);
+        newCommentElement.current.input.value = props.newCommentTxt
     }
 
     return <Input.Group compact>
@@ -18,6 +19,7 @@ const CommentAdd = (props) => {
                 if (e.code === "Enter")
                     competeComment()
             }} />
+            
         <Button type="primary"
             style={{ marginLeft: 8 }}
             onClick={competeComment}>

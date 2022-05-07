@@ -1,50 +1,62 @@
 import { connect } from 'react-redux';
 import {
-    deletePost,
-    likePost,
-    unLikePost,
-    updateComment,
-    completeComment,
-    editPost,
+    changeNewComment,
 } from '../../../../.store/actionCreators/BlogForm/BlogActionCreators'
+
 import {
-    toggleLikePost
-} from '../../../../.store/actionCreators/ProfileForm/ProfileActionCreators'
+    getBlogDataDetail,
+    deleteBlogDataDetail,
+    postNewComment
+} from '../../../../.store/api/posts-api'
+
+import {
+    getProfileInfo,
+    like,
+    unlike
+} from '../../../../.store/api/profile-api'
+
 import PostDetail from './PostDetail';
 
 function mapStateToProps(state) {
     return {
-        posts: state.blog.postList,
-        curUser: state.profile.isAuthData.currentUser,
-        userdata: state.profile.profileList,
+        post: state.blog.postDetail,
+        userdata: state.profile.profileInfo,
         newText: state.blog.newCommentText,
         authData: state.profile.isAuthData.isAuth,
+        isLoadedCheck: state.blog.isLoadedDetail,
+        token: state.profile.isAuthData.access,
     };
 }
 function mapDispatchToProps(dispatch) {
     return {
-        editPosts: (index) => {
-            dispatch(editPost(index));
+        loadData: (id, token) => {
+            dispatch(getBlogDataDetail(id, token))
         },
-        postDelete: (index) => {
-            dispatch(deletePost(index));
+        loadProfileData: (token) => {
+            dispatch(getProfileInfo(token))
         },
-        toggleLike: (index) => {
-            dispatch(toggleLikePost(index));
+        updateComment: (text) => {
+            dispatch(changeNewComment(text));
         },
-        likePost: (index) => {
-            dispatch(likePost(index));
+        completeComment: (newMsgElement, id, token) => {
+            dispatch(changeNewComment(newMsgElement));
+            dispatch(postNewComment({
+                comment_text: newMsgElement,
+                comment_post: id,
+            }, token))
+            dispatch(getBlogDataDetail(id, token))
         },
-        unLikePost: (index) => {
-            dispatch(unLikePost(index));
+        postDelete: (id, token) => {
+            dispatch(deleteBlogDataDetail(id, token));
         },
-        updateComment: (newCommentElement) => {
-            dispatch(updateComment(newCommentElement));
+        LikePost: (index, token) => {
+            dispatch(like(index, token));
         },
-        completeComment: (newMsgElement, index, authorname) => {
-            dispatch(updateComment(newMsgElement));
-            dispatch(completeComment(index, authorname));
+        unLikePost: (index, token) => {
+            dispatch(unlike(index, token));
         },
+
+
     }
 }
 

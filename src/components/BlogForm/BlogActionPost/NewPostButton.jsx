@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const NewPostButton = (props) => {
@@ -13,8 +13,7 @@ const NewPostButton = (props) => {
     }, [props.stateIsCreatedPost])
 
     const createPostAndRedirect = () => {
-        props.stateIsCreatedPost ? navigate("/blog/action/new=" + props.newPostIndex) : (props.createPost())
-        navigate("/blog/action/new=" + props.newPostIndex)
+        navigate("/blog/action/new")
     }
 
 

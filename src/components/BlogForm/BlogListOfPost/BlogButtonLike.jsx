@@ -1,6 +1,6 @@
 import { Col, Button } from 'antd';
 import { HeartTwoTone } from '@ant-design/icons';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const LikeButton = (props) => {
     const [liked, setLike] = useState([]);
@@ -10,11 +10,18 @@ const LikeButton = (props) => {
     }, [props.postLike])
 
     const like = (indexPost) => {
-        props.toggleLike(indexPost);
-        props.userLikedPosts.includes(props.postId) ? props.like(indexPost) : props.unlike(indexPost);
+        likeOrDisLike() ? props.unlike(getIndexOfLike(), props.token) : props.like(indexPost, props.token);
     }
+    const likeOrDisLike = () => {
+        return props.userLikedPosts.filter(like => like.content_id === props.postId).length > 0
+    }
+
+    const getIndexOfLike = () => {
+        return props.userLikedPosts.filter(like => like.content_id === props.postId)[0].id
+    }
+
     const colorLike = () => {
-        return props.userLikedPosts.includes(props.postId) ? "#F91709" : "#8E8E8E";
+        return likeOrDisLike() ? "#F91709" : "#8E8E8E";
     }
     return <Col span={8} >
         <Button type="text" onClick={() => { like(props.postId) }}>

@@ -1,64 +1,57 @@
 import {
-    CREATE_POST,
-    EDIT_POST,
-    UPDATE_POST,
-    DELETE_POST,
-    COMPLETE_POST,
-    LIKE_POST,
-    UNLIKE_POST,
-    UPDATE_COMMENT,
-    CONFIRM_COMMENT,
-    DELETE_COMMENT
+    GET_BLOG_LIST,
+    GET_BLOG_DETAIL,
+    POST_NEW_POST_SUCCESS,
+    POST_COMMENT_SUCCESS,
+    DELETE_POST_SUCCESS,
+    UPDATE_POST_SUCCESS,
+    CHANGE_NEW_POST_STATE,
+    CHANGE_NEW_COMMENT_STATE,
+    GET_ERROR,
+    TOGGLE_LIKE_POST_SUCCESS
 } from "../../actions/BlogForm/BlogActions"
 
-export const createPost = () => ({
-    type: CREATE_POST,
+
+export const getDataListSuccess = (posts) => ({
+    type: GET_BLOG_LIST,
+    payload: posts
 })
 
-export const editPost = (index) => ({
-    type: EDIT_POST,
-    postIndex: index
+export const getDataDetailSuccess = (post) => ({
+    type: GET_BLOG_DETAIL,
+    payload: post
 })
 
-export const updatePost = (label, text) => ({
-    type: UPDATE_POST,
-    postLabel: label,
-    postText: text
+export const completeCommentSuccess = () => ({
+    type: POST_COMMENT_SUCCESS,
 })
 
-export const completePost = (index, username) => ({
-    type: COMPLETE_POST,
-    postIndex: index,
-    postAuthor: username
+export const completePostSuccess = () => ({
+    type: POST_NEW_POST_SUCCESS,
 })
 
-export const deletePost = (index) => ({
-    type: DELETE_POST,
-    postIndex: index
+export const updatePostSuccess = () => ({
+    type: UPDATE_POST_SUCCESS,
 })
 
-export const likePost = (index) => ({
-    type: LIKE_POST,
-    postIndex: index
+export const changeNewPost = (data) => ({
+    type: CHANGE_NEW_POST_STATE,
+    payload: data
 })
 
-export const unLikePost = (index) => ({
-    type: UNLIKE_POST,
-    postIndex: index
+export const changeNewComment = (data) => ({
+    type: CHANGE_NEW_COMMENT_STATE,
+    payload: data
 })
 
-export const updateComment = (text) => ({
-    type: UPDATE_COMMENT,
-    commentText: text
+export const deletePostSuccess = () => ({
+    type: DELETE_POST_SUCCESS,
 })
 
-export const deleteComment = (index) => ({
-    type: DELETE_COMMENT,
-    msgIndex: index
+export const getDataFailure = (error) => ({
+    type: GET_ERROR,
+    payload: error
 })
-
-export const completeComment = (index, username) => ({
-    type: CONFIRM_COMMENT,
-    postIndex: index,
-    userData: username
+export const toggleLikePost = () => ({
+    type: TOGGLE_LIKE_POST_SUCCESS
 })

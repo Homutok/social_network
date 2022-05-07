@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Card, Input, Space, Button, Row } from 'antd';
 import { EditOutlined, FontSizeOutlined, LoadingOutlined } from '@ant-design/icons';
 import { useParams } from 'react-router-dom';
@@ -42,12 +42,41 @@ const EditPost = (props) => {
     }, [props.postData])
 
     const saveChangePostData = () => {
-        let index = props.posts.findIndex(element => element.id.toString() === id)
-        props.confirm_post(index,
-            "username",
-            newLabelElement.current.input.value,
-            newTextElement.current.resizableTextArea.props.value)
-        navigate("/blog")
+        switch (actionType) {
+            case "edit":
+                {
+                    props.update_post(
+                        {
+                            author: 1,
+                            label: newLabelElement.current.input.value,
+                            text: newTextElement.current.resizableTextArea.props.value,
+                            date: "2022-04-29",
+                            liked: 30,
+                        },
+                        id,
+                        props.token
+                    )
+                    navigate("/blog/" + id)
+                    break
+                }
+            case "new":
+                {
+                    props.create_post(
+                        {
+                            author: 1,
+                            label: newLabelElement.current.input.value,
+                            text: newTextElement.current.resizableTextArea.props.value,
+                            date: "2022-04-29",
+                            liked: 0,
+                        },
+                        props.token
+                    )
+                    navigate("/blog")
+                    break
+                }
+            default:
+                break
+        }
     }
 
 
