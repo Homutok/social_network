@@ -63,16 +63,3 @@ export const unlike = (data, token) => async dispatch => {
         .catch((error) =>
             dispatch(loginUsersError(error)))
 }
-
-// export const authCheck = (data) => async dispatch => {
-//     await instance.post('token/verify/', data.access)
-//         .then((response) =>
-//             dispatch(loginUsersSuccess(response.data)))
-//         .catch(() =>
-//             instance.post('token/refresh/', data.refresh)
-//                 .then((response) =>
-//                     dispatch(loginUsersSuccess(response.data)))
-//                 .catch((error) =>
-//                     dispatch(loginUsersError(error)))
-//         )
-// }

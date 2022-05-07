@@ -50,7 +50,7 @@ const EditPost = (props) => {
                             author: 1,
                             label: newLabelElement.current.input.value,
                             text: newTextElement.current.resizableTextArea.props.value,
-                            date: "2022-04-29",
+                            date: "0000-01-01",
                             liked: 30,
                         },
                         id,
@@ -66,7 +66,7 @@ const EditPost = (props) => {
                             author: 1,
                             label: newLabelElement.current.input.value,
                             text: newTextElement.current.resizableTextArea.props.value,
-                            date: "2022-04-29",
+                            date: "0000-01-01",
                             liked: 0,
                         },
                         props.token

@@ -40,11 +40,7 @@ function mapDispatchToProps(dispatch) {
         },
         completeComment: (newMsgElement, id, token) => {
             dispatch(changeNewComment(newMsgElement));
-            dispatch(postNewComment({
-                comment_text: newMsgElement,
-                comment_post: id,
-            }, token))
-            dispatch(getBlogDataDetail(id, token))
+            dispatch(postNewComment({ comment_text: newMsgElement, comment_post: id, }, token))
         },
         postDelete: (id, token) => {
             dispatch(deleteBlogDataDetail(id, token));
